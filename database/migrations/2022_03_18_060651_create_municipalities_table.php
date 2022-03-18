@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('municipalities', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('region_id');
+            $table->bigInteger('province_id');
+            $table->uuid('municipality_id');
+            $table->string('name');
             $table->timestamps();
         });
     }

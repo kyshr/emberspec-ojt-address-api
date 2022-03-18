@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('barangays', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('region_id');
+            $table->bigInteger('province_id');
+            $table->bigInteger('municipality_id');
+            $table->uuid('barangay_id');
+            $table->string('name');
             $table->timestamps();
         });
     }

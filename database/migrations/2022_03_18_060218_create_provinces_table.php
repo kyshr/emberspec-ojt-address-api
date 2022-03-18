@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('provinces', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('region_id');
+            $table->uuid('province_id');
+            $table->string('name');
             $table->timestamps();
         });
     }
