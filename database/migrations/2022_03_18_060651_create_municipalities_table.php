@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('region_id');
             $table->bigInteger('province_id');
-            $table->uuid('municipality_id');
+            $table->bigInteger('municipality_id');
             $table->string('name');
             $table->timestamps();
         });
