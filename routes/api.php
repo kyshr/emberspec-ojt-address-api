@@ -2,6 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegionsController;
+use App\Http\Controllers\ProvincesController;
+use App\Http\Controllers\MunicipalitiesController;
+use App\Http\Controllers\BarangaysController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+//Address API Routes
+
+Route::get('v1/regions', [RegionsController::class, 'getRegions']);
+Route::get('v1/provinces-by-region/{region_id}', [ProvincesController::class, 'getProvincesByRegion']);
+Route::get('v1/municipalities-by-province/{province_id}', [MunicipalitiesController::class, 'getMunicipalitiesByProvince']);
