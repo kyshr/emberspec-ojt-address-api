@@ -28,3 +28,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('v1/regions', [RegionsController::class, 'getRegions']);
 Route::get('v1/provinces-by-region/{region_id}', [ProvincesController::class, 'getProvincesByRegion']);
 Route::get('v1/municipalities-by-province/{province_id}', [MunicipalitiesController::class, 'getMunicipalitiesByProvince']);
+Route::get('v1/barangays-by-municipality/{municipality_id}', [BarangaysController::class, 'getBarangaysByMunicipality']);
