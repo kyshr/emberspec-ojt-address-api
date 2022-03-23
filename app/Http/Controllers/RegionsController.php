@@ -12,4 +12,15 @@ class RegionsController extends Controller
             'data' => Regions::all(),
         ]);
     }
+
+    public function addRegion(Request $request){
+        $data = $request->input('data');
+        // echo $data['greetings'];
+        $new_region = Regions::create([
+            'region_id' => $data['region_id'],
+            'name' => $data['name'],
+        ]);
+
+        return $new_region;
+    }
 }
