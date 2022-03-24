@@ -22,12 +22,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Get all collections
+Route::get('v1/regions', [RegionsController::class, 'getRegions']);
+Route::get('v1/provinces', [ProvincesController::class, 'getProvinces']);
+Route::get('v1/municipalities', [MunicipalitiesController::class, 'getMunicipalities']);
+Route::get('v1/barangays', [BarangaysController::class, 'getBarangays']);
+
+//Add new region, province, municipality and barangay
+Route::post('v1/regions', [RegionsController::class, 'addRegion']);
+Route::post('v1/provinces', [ProvincesController::class, 'addProvince']);
+Route::post('v1/municipalities', [MunicipalitiesController::class, 'addMunicipality']);
+Route::post('v1/barangays', [BarangaysController::class, 'addBarangay']);
 
 //GET request by IDs
-Route::get('v1/regions', [RegionsController::class, 'getRegions']);
 Route::get('v1/provinces-by-region/{region_id}', [ProvincesController::class, 'getProvincesByRegion']);
 Route::get('v1/municipalities-by-province/{province_id}', [MunicipalitiesController::class, 'getMunicipalitiesByProvince']);
 Route::get('v1/barangays-by-municipality/{municipality_id}', [BarangaysController::class, 'getBarangaysByMunicipality']);
-
-//Add new region, province, municipality and barangay routes
-Route::post('v1/regions/add', [RegionsController::class, 'addRegion']);
