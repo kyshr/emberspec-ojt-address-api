@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Municipalities;
+use App\Http\Resources\MunicipalitiesResource;
 
 class MunicipalitiesController extends Controller
 {
@@ -11,8 +12,6 @@ class MunicipalitiesController extends Controller
         $province_id = $request->route('province_id');
         $municipalities = Municipalities::where('province_id', $province_id)->get();
         
-        return response()->json([
-            'data' => $municipalities,
-        ]);
+        return new MunicipalitiesResource($municipalities);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Barangays;
+use App\Http\Resources\BarangaysResource;
 
 class BarangaysController extends Controller
 {
