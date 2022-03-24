@@ -35,4 +35,24 @@ class BarangaysController extends Controller
         
         return response(['message' => 'No data provided.'], 204);
     }
+
+    public function updateBarangay(Request $request){
+        $barangay_id = $request->route('barangay_id');
+
+        if(!empty($request->input('data'))){
+            $data = $request->input('data');
+            $updated_barangay = Barangays::where('barangay_id', $barangay_id)
+            ->update([
+                'region_id' => $data['region_id'],
+                'province_id' => $data['province_id'],
+                'municipality_id' => $data['municipality_id'],
+                'barangay_id' => $barangay_id,
+                'name' => $data['name'],
+            ]);
+
+            return $updated_barangay;
+        }
+
+        return response(['message' => 'No data provided.'], 204);
+    }
 }

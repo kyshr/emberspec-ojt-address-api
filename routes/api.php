@@ -38,3 +38,9 @@ Route::post('v1/barangays', [BarangaysController::class, 'addBarangay']);
 Route::get('v1/provinces-by-region/{region_id}', [ProvincesController::class, 'getProvincesByRegion']);
 Route::get('v1/municipalities-by-province/{province_id}', [MunicipalitiesController::class, 'getMunicipalitiesByProvince']);
 Route::get('v1/barangays-by-municipality/{municipality_id}', [BarangaysController::class, 'getBarangaysByMunicipality']);
+
+//Update geographic levels
+Route::put('v1/regions/{region_id}', [RegionsController::class, 'updateRegion']);
+Route::put('v1/provinces/{province_id}', [ProvincesController::class, 'updateProvince']);
+Route::put('v1/municipalities/{municipality_id}', [MunicipalitiesController::class, 'updateMunicipality']);
+Route::put('v1/barangays/{barangay_id}', [BarangaysController::class, 'updateBarangay']);

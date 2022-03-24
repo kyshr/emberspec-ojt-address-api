@@ -34,4 +34,23 @@ class MunicipalitiesController extends Controller
         
         return response(['message' => 'No data provided.'], 204);
     }
+
+    public function updateMunicipality(Request $request){
+        $municipality_id = $request->route('municipality_id');
+
+        if(!empty($request->input('data'))){
+            $data = $request->input('data');
+            $updated_municipality = Municipalities::where('municipality_id', $municipality_id)
+            ->update([
+                'region_id' => $data['region_id'],
+                'province_id' => $data['province_id'],
+                'municipality_id' => $municipality_id,
+                'name' => $data['name'],
+            ]);
+
+            return $updated_municipality;
+        }
+
+        return response(['message' => 'No data provided.'], 204);
+    }
 }

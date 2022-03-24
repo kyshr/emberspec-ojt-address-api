@@ -33,4 +33,22 @@ class ProvincesController extends Controller
         
         return response(['message' => 'No data provided.'], 204);
     }
+
+    public function updateProvince(Request $request){
+        $province_id = $request->route('province_id');
+
+        if(!empty($request->input('data'))){
+            $data = $request->input('data');
+            $updated_province = Provinces::where('province_id', $province_id)
+            ->update([
+                'region_id' => $data['region_id'],
+                'province_id' => $province_id,
+                'name' => $data['name'],
+            ]);
+
+            return $updated_province;
+        }
+
+        return response(['message' => 'No data provided.'], 204);
+    }
 }

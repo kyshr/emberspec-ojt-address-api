@@ -25,4 +25,21 @@ class RegionsController extends Controller
         
         return response(['message' => 'No data provided.'], 204); 
     }
+
+    public function updateRegion(Request $request){
+        $region_id = $request->route('region_id');
+
+        if(!empty($request->input('data'))){
+            $data = $request->input('data');
+            $updated_region = Regions::where('region_id', $region_id)
+            ->update([
+                'region_id' => $region_id,
+                'name' => $data['name'],
+            ]);
+
+            return $updated_region;
+        }
+
+        return response(['message' => 'No data provided.'], 204);
+    }
 }
