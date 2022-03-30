@@ -6,6 +6,7 @@ use App\Http\Controllers\RegionsController;
 use App\Http\Controllers\ProvincesController;
 use App\Http\Controllers\MunicipalitiesController;
 use App\Http\Controllers\BarangaysController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,19 +29,24 @@ Route::get('v1/provinces', [ProvincesController::class, 'getProvinces']);
 Route::get('v1/municipalities', [MunicipalitiesController::class, 'getMunicipalities']);
 Route::get('v1/barangays', [BarangaysController::class, 'getBarangays']);
 
-//Add new region, province, municipality and barangay
-Route::post('v1/regions', [RegionsController::class, 'addRegion']);
-Route::post('v1/provinces', [ProvincesController::class, 'addProvince']);
-Route::post('v1/municipalities', [MunicipalitiesController::class, 'addMunicipality']);
-Route::post('v1/barangays', [BarangaysController::class, 'addBarangay']);
-
 //GET request by IDs
 Route::get('v1/provinces-by-region/{region_id}', [ProvincesController::class, 'getProvincesByRegion']);
 Route::get('v1/municipalities-by-province/{province_id}', [MunicipalitiesController::class, 'getMunicipalitiesByProvince']);
 Route::get('v1/barangays-by-municipality/{municipality_id}', [BarangaysController::class, 'getBarangaysByMunicipality']);
 
+//Add new geographic level
+Route::post('v1/regions', [RegionsController::class, 'addRegion'])->middleware(['auth:sanctum']);
+Route::post('v1/provinces', [ProvincesController::class, 'addProvince'])->middleware(['auth:sanctum']);
+Route::post('v1/municipalities', [MunicipalitiesController::class, 'addMunicipality'])->middleware(['auth:sanctum']);
+Route::post('v1/barangays', [BarangaysController::class, 'addBarangay'])->middleware(['auth:sanctum']);
+
 //Update geographic levels
-Route::put('v1/regions/{region_id}', [RegionsController::class, 'updateRegion']);
-Route::put('v1/provinces/{province_id}', [ProvincesController::class, 'updateProvince']);
-Route::put('v1/municipalities/{municipality_id}', [MunicipalitiesController::class, 'updateMunicipality']);
+Route::put('v1/regions/{region_id}', [RegionsController::class, 'updateRegion'])->middleware(['auth:sanctum']);
+Route::put('v1/provinces/{province_id}', [ProvincesController::class, 'updateProvince'])->middleware(['auth:sanctum']);
+Route::put('v1/municipalities/{municipality_id}', [MunicipalitiesController::class, 'updateMunicipality'])->middleware(['auth:sanctum']);
 Route::put('v1/barangays/{barangay_id}', [BarangaysController::class, 'updateBarangay']);
+
+//Authentication Routes
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
+Route::post('logout', [AuthController::class, 'logout'])->middleware(['auth:sanctum']);
