@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Municipalities;
 use App\Http\Resources\MunicipalitiesResource;
+use Illuminate\Support\Facades\DB;
 
 class MunicipalitiesController extends Controller
 {
     public function getMunicipalities(Request $request){
-        return new MunicipalitiesResource(Municipalities::all());
+        // return new MunicipalitiesResource(Municipalities::all());
+        return response()->json(DB::table('regions')
+        ->join('provinces', 'provinces.region_id', '=', 'regions.region_id')
+        ->join('municipalities', 'municipalities.province_id', '=', 'provinces.province_id')
+        ->select('municipalities.*', 'regions.name AS region_name', 'provinces.name AS province_name')
+        ->paginate(100));
     }
 
     public function getMunicipalitiesByProvince(Request $request){

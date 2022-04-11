@@ -50,37 +50,39 @@
 48,9,972,Zamboanga del Norte
 49,9,973,Zamboanga del Sur
 50,9,983,Zamboanga Sibugay
-51,10,1013,Bukidnon
-52,10,1018,Camiguin
-53,10,1035,Lanao del Norte
-54,10,1042,Misamis Occidental
-55,10,1043,Misamis Oriental
-56,11,1123,Davao del Norte
-57,11,1124,Davao del Sur
-58,11,1125,Davao Oriental
-59,11,1182,Davao de Oro
-60,11,1186,Davao Occidental
-61,12,1247,Cotabato
-62,12,1263,South Cotabato
-63,12,1265,Sultan Kudarat
-64,12,1280,Sarangani
-65,13,1339,"NCR, City of Manila, First District"
-66,13,1374,"NCR, Second District"
-67,13,1375,"NCR, Third District"
-68,13,1376,"NCR, Fourth District"
-69,14,1401,Abra
-70,14,1411,Benguet
-71,14,1427,Ifugao
-72,14,1432,Kalinga
-73,14,1444,Mountain Province
-74,14,1481,Apayao
-75,15,1507,Basilan
-76,15,1536,Lanao del Sur
-77,15,1538,Maguindanao
-78,15,1566,Sulu
-79,15,1570,Tawi-Tawi
-80,16,1602,Agusan del Norte
-81,16,1603,Agusan del Sur
-82,16,1667,Surigao del Norte
-83,16,1668,Surigao del Sur
-84,16,1685,Dinagat Islands
+51,9,997,City of Isabela (Not a Province)
+52,10,1013,Bukidnon
+53,10,1018,Camiguin
+54,10,1035,Lanao del Norte
+55,10,1042,Misamis Occidental
+56,10,1043,Misamis Oriental
+57,11,1123,Davao del Norte
+58,11,1124,Davao del Sur
+59,11,1125,Davao Oriental
+60,11,1182,Davao de Oro
+61,11,1186,Davao Occidental
+62,12,1247,Cotabato
+63,12,1263,South Cotabato
+64,12,1265,Sultan Kudarat
+65,12,1280,Sarangani
+66,12,1298,City of Cotabato (Not a Province)
+67,13,1339,"NCR, City of Manila, First District (Not a Province)"
+68,13,1374,"NCR, Second District (Not a Province)"
+69,13,1375,"NCR, Third District (Not a Province)"
+70,13,1376,"NCR, Fourth District (Not a Province)"
+71,14,1401,Abra
+72,14,1411,Benguet
+73,14,1427,Ifugao
+74,14,1432,Kalinga
+75,14,1444,Mountain Province
+76,14,1481,Apayao
+77,15,1507,Basilan
+78,15,1536,Lanao del Sur
+79,15,1538,Maguindanao
+80,15,1566,Sulu
+81,15,1570,Tawi-Tawi
+82,16,1602,Agusan del Norte
+83,16,1603,Agusan del Sur
+84,16,1667,Surigao del Norte
+85,16,1668,Surigao del Sur
+86,16,1685,Dinagat Islands

@@ -5,11 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Barangays;
 use App\Http\Resources\BarangaysResource;
+use Illuminate\Support\Facades\DB;
 
 class BarangaysController extends Controller
 {
     public function getBarangays(Request $request){
-        return new BarangaysResource(Barangays::all());
+        // return new BarangaysResource(Barangays::paginate(1000));
+        return response()->json(DB::table('regions')
+        ->join('provinces', 'provinces.region_id', '=', 'regions.region_id')
+        ->join('municipalities', 'municipalities.province_id', '=', 'provinces.province_id')
+        ->join('barangays', 'barangays.municipality_id', '=', 'municipalities.municipality_id')
+        ->select('barangays.*', 'regions.name AS region_name', 'provinces.name AS province_name', 'municipalities.name AS municipality_name')
+        ->paginate(500));
     }
 
     public function getBarangaysByMunicipality(Request $request){

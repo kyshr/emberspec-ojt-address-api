@@ -5,11 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Provinces;
 use App\Http\Resources\ProvincesResource;
+use Illuminate\Support\Facades\DB;
 
 class ProvincesController extends Controller
 {
     public function getProvinces(Request $request){
-        return new ProvincesResource(Provinces::all());
+        // return new ProvincesResource(Provinces::all());
+        return response()->json(['data' => DB::table('regions')
+        ->join('provinces', 'provinces.region_id', '=', 'regions.region_id')
+        ->select('provinces.*', 'regions.name AS region_name')
+        ->get()]);
     }
 
     public function getProvincesByRegion(Request $request){
